@@ -62,18 +62,14 @@ def handle_client(client_socket):
 
         ### DROP PACKET ###
         if message_number and message_number in DROP_CLIENT_TO_SERVER:
-            print(
-                f"{WARNING}[X][{time.ctime()}] Dropping, returning empty string to client:{ENDC}"
-            )
+            print(f"{WARNING}[X][{time.ctime()}] Dropping, returning empty string to client:{ENDC}")
             client_socket.sendall(bytes())
             raise AttackException("Drop client to server")
 
         ### ATTACK PAYLOAD ###
         if message_number and message_number in CHANGE_CLIENT_TO_SERVER:
             client_data = attack_payload(client_data.decode("utf-8")).encode("utf-8")
-            print(
-                f"{WARNING}[X][{time.ctime()}] Modifying payload to:{ENDC} {client_data}"
-            )
+            print(f"{WARNING}[X][{time.ctime()}] Modifying payload to:{ENDC} {client_data}")
 
         # Forward the data to the target server
         forward_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -90,25 +86,17 @@ def handle_client(client_socket):
         # Receive response from the target server
         server_response = forward_socket.recv(BUFFER_SIZE)
         messages_server_to_client.append(server_response)
-        print(
-            f"{OKBLUE}[<][{time.ctime()}] Received from server:{ENDC} {server_response}"
-        )
+        print(f"{OKBLUE}[<][{time.ctime()}] Received from server:{ENDC} {server_response}")
 
         ### ATTACK RESPONSE ###
         if message_number and message_number in CHANGE_SERVER_TO_CLIENT:
-            server_response = attack_payload(server_response.decode("utf-8")).encode(
-                "utf-8"
-            )
-            print(
-                f"{WARNING}[X][{time.ctime()}] Modifying payload to:{ENDC} {server_response}"
-            )
+            server_response = attack_payload(server_response.decode("utf-8")).encode("utf-8")
+            print(f"{WARNING}[X][{time.ctime()}] Modifying payload to:{ENDC} {server_response}")
 
         ### DROP RESPONSE ###
         if message_number and message_number in DROP_SERVER_TO_CLIENT:
             server_response = bytes()
-            print(
-                f"{WARNING}[X][{time.ctime()}] Modifying payload to:{ENDC} {server_response}"
-            )
+            print(f"{WARNING}[X][{time.ctime()}] Modifying payload to:{ENDC} {server_response}")
 
         # Send the response back to the client
         client_socket.sendall(server_response)
@@ -139,9 +127,7 @@ def mitm_proxy():
         while True:
             # Accept a new connection from a client
             client_socket, client_addr = listen_socket.accept()
-            print(
-                f"{HEADER}[+][{time.ctime()}] Accepted connection from {client_addr}{ENDC}"
-            )
+            print(f"{HEADER}[+][{time.ctime()}] Accepted connection from {client_addr}{ENDC}")
 
             # Handle the client in a separate function
             handle_client(client_socket)
