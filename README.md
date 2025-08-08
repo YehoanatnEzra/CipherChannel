@@ -62,26 +62,6 @@ This project implements a secure messaging channel protocol inspired by modern c
    * **Modify**: tamper with JSON fields or ciphertext to test integrity checks.
    * **Replay**: resend old messages to test nonce-based replay protection.
 
-## Project Structure
-CipherChannel/              # Project root (GitHub: YehoanatnEzra/CipherChannel)
-├── vpn/                    # Core package modules
-│   ├── crypto.py     # ECC, KDF, AES, HMAC implementations
-│   ├── message.py          # Message class for JSON/HMAC/AES handling
-│   ├── vpn_client.py           # VPN client core logic (no UI/socket)
-│   ├── vpn_server.py           # VPN server core logic (no socket binding)
-│
-├── entrypoints/            # Runnable scripts / entry-points
-│   ├── client_wrapper.py   # Tkinter GUI client launcher
-│   ├── server_wrapper.py   # Server socket listener launcher
-│   ├── mitm_wrapper.py     # MITM proxy launcher
-│   └── generate_keys.py    # ECC keypair generation tool
-│
-├── config/                 # Configuration and generated keys
-│   └── keys.py             # CLIENT/SERVER_PUBLIC/PRIVATE keys in Base64
-│
-├── requirements.txt        # Python dependencies
-└── README.md               # This documentation file
-
 ## Running the Project
 
 - **Install dependencies** - `pip install -r requirements.txt`
