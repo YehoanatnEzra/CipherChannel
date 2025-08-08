@@ -29,7 +29,7 @@ This project implements a secure messaging channel protocol inspired by modern c
 5. **Message Format and Transmission**
    Each message is encapsulated as a JSON object:
    
-{
+```json{
   "body": {
     "nonce": 1,
     "warnings": [],
@@ -39,7 +39,7 @@ This project implements a secure messaging channel protocol inspired by modern c
   },
   "hmac": "b4bc93bf989554b30239529c08464420e20fb7ec2a05be9c7c6adb5086574a1d"
 }
-
+```
 
    • **nonce** prevents replay: each side rejects messages with an older counter.
    • **warnings** accumulates codes for any detected integrity or availability issues.
