@@ -68,7 +68,7 @@ This project implements a secure messaging channel protocol inspired by modern c
 - **(Optional)Generate fresh keys** - Run `entrypoints/generate_keys.py`, copy the printed base64 values into `config/keys.py`.
 - **Start the server** - run `entrypoints/server_wrapper.py`, Ensure the server listens on its configured PORT (default 65432).
 - **(Optional) Start the MITM** - run `entrypoints/mitm_wrapper.py`, Listen on the client port (65431) and forward to the server port (65432).
-- **Start the client** - run `entrypoints/client_wrapper.py` (default 65432, set to 65431 if you want to intive my aggregator to sit in as the "MITM"
+- **Start the client** - run `entrypoints/client_wrapper.py` (default 65432, set to 65431 if you want to invite the "man in the middle".
 - **Adjust ports** - If you change LISTEN\_PORT or FORWARD\_PORT in the MITM, or HOST/PORT in the client/server wrappers, make sure all three components use matching values.
 - **Observe logs** - Server logs decrypted messages to `server_output.txt` and Console warnings appear on integrity or drop attacks.
 
