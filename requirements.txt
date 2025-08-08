@@ -1,0 +1,10 @@
+# Generated using python 3.12.4 and pip 24.0
+colorama==0.4.6
+docopt==0.6.2
+iniconfig==2.0.0
+packaging==24.1
+pluggy==1.5.0
+pytest==8.3.3
+pytest-watch==4.2.0
+watchdog==5.0.3
+pycryptodome==3.21.0
