@@ -1,6 +1,6 @@
 # There is a man in the middle!!
-This project was developed as part of the final assignment in the Cybersecurity course at the University of British Columbia (UBC).
-I (together with my teamates) designed and implemented a simple VPN that enables secure communication between two computer and server over a protected channel.
+This project was developed as part of the final project in the Cybersecurity course at the University of British Columbia (UBC), Canada.
+In this project I designed and implemented a simple VPN that enables secure communication between two computer and server over a protected channel.
 Both the client and server start with public key information about the other party, ensuring secure key exchange.
 The VPN provides confidentiality, integrity, and mutual authentication, protecting data against unauthorized access and tampering.
 
