@@ -28,6 +28,7 @@ This project implements a secure messaging channel protocol inspired by modern c
 
 5. **Message Format and Transmission**
    Each message is encapsulated as a JSON object:
+   ```json
 {
   "body": {
     "nonce": 1,
@@ -45,12 +46,12 @@ This project implements a secure messaging channel protocol inspired by modern c
    • **text** and **iv** represent the encrypted plaintext and IV.
    • **new\_pub\_key** seeds the next ratchet step.
 
-6. **Message Processing**
+7. **Message Processing**
 
    * **Sender**: pads and encrypts the UTF-8 plaintext under AES-CBC, encodes IV and ciphertext in hex, builds the JSON body, computes HMAC over the body, and serializes the full payload.
    * **Receiver**: parses JSON, validates structure, verifies HMAC (throws `InvalidHashError` on mismatch), checks nonce order (`InvalidNonceError` on replay), decrypts ciphertext (`ValueError` if padding/IV wrong), logs content and warnings, then updates ratchet state.
 
-7. **Attack Simulation (MITM)**
+8. **Attack Simulation (MITM)**
    A separate `mitm.py` acts as a proxy between client and server, allowing configurable behaviors per message index:
 
    * **Drop**: return empty payload to simulate availability attack.
