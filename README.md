@@ -30,16 +30,17 @@ This project implements a secure messaging channel protocol inspired by modern c
    Each message is encapsulated as a JSON object:
 
    ```json
-   {
-     "body": {
-       "nonce": <int>,          // monotonically increasing counter
-       "warnings": [<codes>],   // integrity/general error flags
-       "text": "<hex>",       // AES-CBC ciphertext hex
-       "iv": "<hex>",         // initialization vector hex
-       "new_pub_key": "<base64>" // next ephemeral public key
-     },
-     "hmac": "<hex>"           // HMAC-SHA256 over utf-8 JSON(body)
-   }
+  
+{
+  "body": {
+    "nonce": 1,
+    "warnings": [],
+    "text": "5a8717dc4718ff1e40b244d8eec69047",
+    "iv": "e14ee2ea6d57f701f82acb3c85e98fd9",
+    "new_pub_key": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEkqarK+XcgKKbSTVi+ajdjB8lFp3SlsvFGwTl8qFc7w1NuYLyuKDUnr9QncQl0Q2kZYfBa4nVQckfcFCOQ/3uog=="
+  },
+  "hmac": "b4bc93bf989554b30239529c08464420e20fb7ec2a05be9c7c6adb5086574a1d"
+}
    ```
 
    • **nonce** prevents replay: each side rejects messages with an older counter.
