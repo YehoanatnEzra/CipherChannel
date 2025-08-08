@@ -19,7 +19,7 @@ This project implements a secure messaging channel protocol inspired by modern c
    • **enc\_key** is used to encrypt message payloads under AES‑CBC with random IV.
    • **auth\_key** is used to generate and verify HMAC-SHA256 over the JSON body.
 
-  <img width="953" height="497" alt="image" src="https://github.com/user-attachments/assets/d60f88b1-2f0e-4fa8-aa18-cef669e865b7" />
+  <img width="953" height="100" alt="image" src="https://github.com/user-attachments/assets/d60f88b1-2f0e-4fa8-aa18-cef669e865b7" />
 
 4. **Per-Message Ratchet**
    For each message cycle, both client and server generate fresh ephemeral ECC keypairs and include the new public key in the next message or acknowledgment.
@@ -28,7 +28,8 @@ This project implements a secure messaging channel protocol inspired by modern c
 
 5. **Message Format and Transmission**
    Each message is encapsulated as a JSON object.
-![Uploading image.png…]()
+<img width="869" height="100" alt="image" src="https://github.com/user-attachments/assets/9df6821c-2f1c-4770-abb5-3571c034b125" />
+
 
  #### Sample Execution
    
