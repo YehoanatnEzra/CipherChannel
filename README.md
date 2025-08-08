@@ -28,7 +28,7 @@ This project implements a secure messaging channel protocol inspired by modern c
 
 5. **Message Format and Transmission**
    Each message is encapsulated as a JSON object:
-   ```json
+   
 {
   "body": {
     "nonce": 1,
