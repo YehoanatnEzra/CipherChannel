@@ -7,17 +7,17 @@ This project implements a secure messaging channel protocol inspired by modern c
 
 1. **Initial Handshake (Asymmetric Key Exchange)**
    Upon connecting, the client and server each possess a long-term ECC keypair (P-256 curve). The client initiates the handshake by sending its public key (Base64‑encoded DER) to the server. The server responds with its own public key in the same format.
-   • This exchange establishes mutual authentication of the long-term keys.
-   • Both sides then compute a shared secret via Elliptic‑Curve Diffie–Hellman (ECDH).
+   - This exchange establishes mutual authentication of the long-term keys.
+   - Both sides then compute a shared secret via Elliptic‑Curve Diffie–Hellman (ECDH).
 
 2. **Key Derivation Function (KDF)**
    The raw ECDH secret is passed into a KDF based on SHAKE128 XOF, which "squeezes" exactly 32 bytes of pseudorandom output.
-   • **Purpose**: normalize the secret to a fixed length, ensure high entropy distribution, and prepare it for symmetric-key usage.
+   - **Purpose**: normalize the secret to a fixed length, ensure high entropy distribution, and prepare it for symmetric-key usage.
 
 3. **Symmetric Key Splitting**
    From the 32‑byte KDF output, we derive two distinct symmetric keys by hashing with different labels:
-   • **enc\_key** is used to encrypt message payloads under AES‑CBC with random IV.
-   • **auth\_key** is used to generate and verify HMAC-SHA256 over the JSON body.
+   - **enc\_key** is used to encrypt message payloads under AES‑CBC with random IV.
+   = **auth\_key** is used to generate and verify HMAC-SHA256 over the JSON body.
 
   <img width="869" height="280" alt="image" src="https://github.com/user-attachments/assets/d60f88b1-2f0e-4fa8-aa18-cef669e865b7" />
 
