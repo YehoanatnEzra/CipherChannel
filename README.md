@@ -27,7 +27,8 @@ This project implements a secure messaging channel protocol inspired by modern c
    • They recompute a fresh shared secret and symmetric keys, achieving forward secrecy: past keys cannot decrypt future messages.
 
 5. **Message Format and Transmission**
-   Each message is encapsulated as a JSON object:
+   Each message is encapsulated as a JSON object.
+ #### Sample Execution
    
 ```json{
   "body": {
