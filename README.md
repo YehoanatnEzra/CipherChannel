@@ -23,8 +23,8 @@ This project implements a secure messaging channel protocol inspired by modern c
 
 4. **Per-Message Ratchet**
    For each message cycle, both client and server generate fresh ephemeral ECC keypairs and include the new public key in the next message or acknowledgment.
-   • After sending, each side updates its private key to the new ephemeral one, discarding the old.
-   • They recompute a fresh shared secret and symmetric keys, achieving forward secrecy: past keys cannot decrypt future messages.
+   - After sending, each side updates its private key to the new ephemeral one, discarding the old.
+   - They recompute a fresh shared secret and symmetric keys, achieving forward secrecy: past keys cannot decrypt future messages.
 
 5. **Message Format and Transmission**
    Each message is encapsulated as a JSON object.
