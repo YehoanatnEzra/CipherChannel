@@ -30,7 +30,6 @@ This project implements a secure messaging channel protocol inspired by modern c
    Each message is encapsulated as a JSON object:
 
    ```json
-  
 {
   "body": {
     "nonce": 1,
