@@ -69,14 +69,13 @@ This project implements a secure messaging channel protocol inspired by modern c
 - **Start the server** - run `entrypoints/server_wrapper.py`, Ensure the server listens on its configured PORT (default 65432).
 - **(Optional) Start the MITM** - run `entrypoints/mitm_wrapper.py`, Listen on the client port (65431) and forward to the server port (65432).
 - **Start the client** - run `entrypoints/client_wrapper.py` (default 65432, set to 65431 if you want to invite the "man in the middle".
-- **Adjust ports** - If you change LISTEN\_PORT or FORWARD\_PORT in the MITM, or HOST/PORT in the client/server wrappers, make sure all three components use matching values.
 - **Observe logs** - Server logs decrypted messages to `server_output.txt` and Console warnings appear on integrity or drop attacks.
 
-Enjoy experimenting with secure messaging, ratchets, and MITM resilience!
+Enjoy experimenting with secure messaging, ratchets, and MITM resilience! :)
 
 ## Feedback & Contact
 If you find any issues, have questions, or suggestions for improvement, feel free to reach out:
 - Email: yonzra12@gmail.com
-
+- Linkdin: www.linkedin.com/in/yehonatanezra
 ---
 
