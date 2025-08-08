@@ -28,6 +28,8 @@ This project implements a secure messaging channel protocol inspired by modern c
 
 5. **Message Format and Transmission**
    Each message is encapsulated as a JSON object.
+![Uploading image.png…]()
+
  #### Sample Execution
    
 ```json{
@@ -53,7 +55,7 @@ This project implements a secure messaging channel protocol inspired by modern c
    * **Receiver**: parses JSON, validates structure, verifies HMAC (throws `InvalidHashError` on mismatch), checks nonce order (`InvalidNonceError` on replay), decrypts ciphertext (`ValueError` if padding/IV wrong), logs content and warnings, then updates ratchet state.
 
 8. **Attack Simulation (MITM)**
-   A separate `mitm.py` acts as a proxy between client and server, allowing configurable behaviors per message index:
+   A separate `mitm_wrapper.py` acts as a proxy between client and server, allowing configurable behaviors per message index:
 
    * **Drop**: return empty payload to simulate availability attack.
    * **Modify**: tamper with JSON fields or ciphertext to test integrity checks.
@@ -61,51 +63,19 @@ This project implements a secure messaging channel protocol inspired by modern c
 
 ## Running the Project
 
-1. **Install dependencies**:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-2. **Generate fresh keys** (optional, if you want new long-term ECC keys):
-
-   ```bash
-   python entrypoints/generate_keys.py
-   # Copy the printed Base64 values into config/keys.py
-   ```
-
-3. **Start the server**:
-
-   ```bash
-   python entrypoints/server_wrapper.py
-   ```
-
-   Ensure the server listens on its configured PORT (default 65432).
-
-4. **(Optional) Start the MITM**:
-
-   ```bash
-   python entrypoints/mitm_wrapper.py
-   ```
-
-   Listen on the client port (65431) and forward to the server port (65432).
-
-5. **Start the client**:
-
-   ```bash
-   python entrypoints/client_wrapper.py
-   ```
-
-   A simple Tkinter GUI will appear. Enter messages and click **Send**.
-
-6. **Adjust ports**:
-   If you change LISTEN\_PORT or FORWARD\_PORT in the MITM, or HOST/PORT in the client/server wrappers, make sure all three components use matching values.
-
-7. **Observe logs**:
-
-   * Server logs decrypted messages to `server_output.txt`.
-   * Console warnings appear on integrity or drop attacks.
+- **Install dependencies** - `pip install -r requirements.txt`
+- **Generate fresh keys** (optional, if you want new long-term ECC keys) - Run `python entrypoints/generate_keys.py`, copy the printed base64 values into `config/keys.py`.
+- **Start the server** - run `python entrypoints/server_wrapper.py`, Ensure the server listens on its configured PORT (default 65432).
+- **(Optional) Start the MITM** - run `python entrypoints/mitm_wrapper.py`, Listen on the client port (65431) and forward to the server port (65432).
+- **Start the client** - run `python entrypoints/client_wrapper.py` (default 65432, set to 65431 if you want to intive my aggregator to sit in as the "MITM"
+- **Adjust ports** - If you change LISTEN\_PORT or FORWARD\_PORT in the MITM, or HOST/PORT in the client/server wrappers, make sure all three components use matching values.
+- **Observe logs** - Server logs decrypted messages to `server_output.txt` and Console warnings appear on integrity or drop attacks.
 
 Enjoy experimenting with secure messaging, ratchets, and MITM resilience!
-tional use.
+
+## Feedback & Contact
+If you find any issues, have questions, or suggestions for improvement, feel free to reach out:
+- Email: yonzra12@gmail.com
+
+---
 
