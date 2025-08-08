@@ -1,6 +1,6 @@
 # There is a man in the middle!!
 
-This project implements a secure messaging channel protocol inspired by modern cryptographic ratchet designs, featuring Diffie–Hellman key exchange, a key derivation function (KDF), symmetric encryption (AES-CBC), message authentication (HMAC-SHA256), forward secrecy, integrity and replay protection, and a simple simulation of a man-in-the-middle (MITM) attacker. This channel provides confidentiality, integrity, and mutual authentication. It was developed as the final Projects for a cybersecurity course during my exchange studies at the University of British Columbia (UBC), Vancouver, Canada.
+This project implements a secure messaging channel protocol inspired by modern cryptographic ratchet designs, featuring Diffie–Hellman key exchange, a key derivation function (KDF), symmetric encryption (AES-CBC), message authentication (HMAC-SHA256), forward secrecy, integrity and replay protection, and a simple simulation of a man-in-the-middle (MITM) attacker. This channel provides confidentiality, integrity, and mutual authentication.
 - Note: In a real-world deployment, the initial key exchange would be protected by certificates (e.g., X.509/TLS) or another form of authenticated channel to prevent a man-in-the-middle from tampering with these long-term public keys
 
 ## My Communication Protocol:
