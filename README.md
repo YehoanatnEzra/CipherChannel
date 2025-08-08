@@ -43,11 +43,8 @@ This project implements a secure messaging channel protocol inspired by modern c
 ```
 
    • **nonce** prevents replay: each side rejects messages with an older counter.
-   
    • **warnings** accumulates codes for any detected integrity or availability issues.
-   
    • **text** and **iv** represent the encrypted plaintext and IV.
-   
    • **new\_pub\_key** seeds the next ratchet step.
 
 7. **Message Processing**
