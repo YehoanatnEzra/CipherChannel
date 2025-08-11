@@ -28,7 +28,6 @@ This project implements a secure messaging channel protocol inspired by modern c
 
 5. **Message Format and Transmission**
    Each message is encapsulated as a JSON object.
-<img width="869" height="280" alt="image" src="https://github.com/user-attachments/assets/d60f88b1-2f0e-4fa8-aa18-cef669e865b7" />
 <img width="869" height="100" alt="image" src="https://github.com/user-attachments/assets/9df6821c-2f1c-4770-abb5-3571c034b125" />
 
 
