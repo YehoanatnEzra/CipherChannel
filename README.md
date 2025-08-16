@@ -73,6 +73,21 @@ This project implements a secure messaging channel protocol inspired by modern c
 
 Enjoy experimenting with secure messaging, ratchets, and MITM resilience! :)
 
+## project_root/
+├─ entrypoints/
+│  ├─ client_wrapper.py
+│  ├─ server_wrapper.py
+│  ├─ mitm_wrapper.py
+│  └─ generate_keys.py
+├─ vpn/
+│  ├─ crypto.py
+│  ├─ message.py
+│  ├─ vpn_client.py
+│  └─ vpn_server.py
+└─ config/
+   └─ keys.py
+
+
 ## Feedback & Contact
 If you find any issues, have questions, or suggestions for improvement, feel free to reach out:
 - Email: yonzra12@gmail.com
