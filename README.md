@@ -85,7 +85,7 @@ Enjoy experimenting with secure messaging, ratchets, and MITM resilience! :)
   - vpn_client.py
   - vpn_server.py
 - config/
-  - keys.py
+   - keys.py
 
 
 ## Feedback & Contact
