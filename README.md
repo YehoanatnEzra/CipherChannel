@@ -80,10 +80,10 @@ Enjoy experimenting with secure messaging, ratchets, and MITM resilience! :)
    - mitm_wrapper.py
    - generate_keys.py
 -  vpn/
-  - rypto.py
-  - message.py
-  - vpn_client.py
-  - vpn_server.py
+     - crypto.py
+     - message.py
+     - vpn_client.py
+     - vpn_server.py
 - config/
    - keys.py
 
